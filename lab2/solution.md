@@ -4,7 +4,7 @@
 > fdisk /dev/sda
 Partition type
   p   primary (2 primary, 0 extended, 2 free)
-  e extended (container for logical partitions)
+  e   extended (container for logical partitions)
 Select (defauplt p)
 > p
 Partition number (3,4, default 3):   # cause /dev/sda1 & /dev/sda2 are already exist
