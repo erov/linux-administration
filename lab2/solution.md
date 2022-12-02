@@ -158,4 +158,32 @@ Setting interval between checks to 5184000 seconds
 [ 6622.845207 ] EXT4-fs (sda3): mounted filesystem eith ordered data mode. Opts: (null)
 ```
 
+# task 7
+
+```
+> ln -s /mnt/newdisk ~/newdisk
+> ls -l ~
+total 12
+-rw-------. 1 root root 1943 Aug 28  2020 anaconda-ks.cfg
+lrwxrwxrwx. 1 root root   12 Dec  2 03:58 newdisk -> /mnt/newdisk
+-rw-r--r--. 1 root root   12 Dec  2 03:15 sda3_uuid
+drwxr-xr-x. 2 root root 4096 Nov 11  2021 test
+```
+
+
+# task 8
+
+```
+> mkdir ~/newdisk/test
+> ls -l ~/mnt/newdisk
+total 24
+drwx------. 2 root root 16384 Dec  2 03:40 lost+found
+drwxr-xr-x. 2 root root  4096 Dec  2 04:00 test
+```
+
+# task 9
+
+```
+
+```
 
