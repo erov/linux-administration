@@ -41,3 +41,12 @@ Syncing disks.
 
 
 # 2
+
+```
+> touch ~/sda3_uuid && blkid /dev/sda3 | cut -d "\"" -f2 > ~/sda3_uuid
+> cat ~/sda3_uuid
+b86d2976-03
+```
+
+# 3
+
