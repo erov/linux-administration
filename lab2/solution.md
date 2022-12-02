@@ -280,3 +280,12 @@ Filesystem    1M-blocks Used  Available Use% Mounted on
 
 # task 11
 
+Weird, but ok:
+```
+> e2fsck -n /dev/sda3
+Warning! /dev/sda3 is mounted.
+Warning: skipping journal recovery because doing a read-only filesystem check.
+/dev/sda3: clean, 13/76000 files, 6589/89600 blocks (check after next mount).
+```
+
+# task 12
