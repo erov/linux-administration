@@ -184,6 +184,45 @@ drwxr-xr-x. 2 root root  4096 Dec  2 04:00 test
 # task 9
 
 ```
+> sudo echo "/dev/sda3    /mnt/newdisk    ext4    noexec,noatime    0 0" >> /etc/fstab
+> cat /etc/fstab
 
+#
+# /etc/fstab
+# Created by anaconda on Fri Aug 28 00:12:19 2020
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
+#
+# After editing this file, run 'systemctl daemon-reload' to update systemd
+# units generated from this file.
+#
+/dev/mapper/cl-root     /                       ext4    defaults        1 1
+UUID=1f1297b3-3cf3-4a12-820a-c63b70b17a6a /boot                   ext4    defaults        1 2
+/dev/mapper/cl-home     /home                   xfs     defaults        0 0
+/dev/mapper/cl-swap     swap                    swap    defaults        0 0
+/dev/sda3    /mnt/newdisk    ext4    noexec,noatime    0 0
+
+> sudo reboot
+
+> nano ~/newdisk/hello.sh
+> #!/bin/bash
+> echo "Hello, world!"
+>
+
+> ls ~/newdisk
+total 32
+-rw-r--r--. 1 root root    34 Dec  2 04:29 hello.sh
+drwx------. 2 root root 16384 Dec  2 03:40 lost+found
+drwxr-xr-x. 2 root root  4096 Dec  2 04:00 test
+
+> bash ~/newdisk/hello.sh
+Hello, world!
+
+> runuser -l user -c 'bash /root/newdisk/hello.sh'
+bash: /root/newdisk/hello.sh: Permission denied
 ```
+
+# task 10
+
 
