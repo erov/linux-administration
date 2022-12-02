@@ -60,6 +60,7 @@ Writing inode tables: done
 Creating journal (1024 blocks): done
 Writing superblocks and filesystem accounting information: done
 
-> 
+> blkid /dev/sda3
+/dev/sda3: UUID="87f169b9-f2fb-43d0-80be-04367d05a404" TYPE="ext4" PARTUUID="b86d2976-03"
 ```
 
