@@ -141,3 +141,12 @@ Journal start:            0
 
 ```
 
+# 5
+```
+> tune2fs -c 2 -i 2m /dev/sda3
+tune2fs 1.45.4 (23-Sep-2019)
+Setting maximal mount cout to 2
+Setting interval between checks to 5184000 seconds
+```
+
+# 6
