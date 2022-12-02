@@ -50,3 +50,16 @@ b86d2976-03
 
 # 3
 
+```
+> mkfs.ext4 /dev/sda3 4096
+mkefs 1.54.3 (23-Sep-2019)
+Creating filesystem with 4096 1k blocks and 1024 inodes
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+> 
+```
+
