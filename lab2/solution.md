@@ -22,7 +22,7 @@ First sector:
 Last sector, +sectors or +size{K,M,G,T,P}:
 > +300M
 
-Created new partition 3 pf type 'Linux' and size 300Mib
+Created new partition 3 pf type 'Linux' and of size 300MiB
 
 > w
 
@@ -88,7 +88,7 @@ Writing superblocks and filesystem accounting information: done
 # task 4
 
 ```
-> dumpe2fs /dev/sda3
+> dumpe2fs -h /dev/sda3
 Filesystem volume name:   <none>
 Last mounted on:          <not available>
 Filesystem UUID:          24178d26-d8b5-4085-8fed-6ebb8f83c4dd
@@ -225,4 +225,58 @@ bash: /root/newdisk/hello.sh: Permission denied
 
 # task 10
 
+```
+> umount /dev/sda3
+
+> fdisk /dev/sda
+> d
+Partition number (1-3, default 3):
+> 3
+Partition 3 has been deleted.
+> n
+Partition type
+  p   primary (2 primary, 0 extended, 2 free)
+  e   extended (container for logical partitions)
+Select (defauplt p)
+> p
+Partition number (3,4, default 3):
+> 3
+First sector:
+>   # use default -- first free one
+Last sector, +sectors or +size{K,M,G,T,P}:
+> +350M
+
+Created new partition 3 pf type 'Linux' and of size 350MiB
+Partition #3 contains a ext4 signature.
+
+Do you want ti remove the signature? [Y]es/[N]o:
+> No
+
+> p
+Device      Boot    Start       End   Sectors   Size  Id  Type
+/dev/sda1   *        2048   2099199   2097152     1G  83  Linux
+/dev/sda2         2099200  14551039  12451840     6G  8e  Linux LVM
+/dev/sda3        14551040  15267839    716800   350M  83  Linux
+
+> w
+The partition table has been altered.
+Syncing disks.
+
+
+> resize2fs /dev/sda3
+Please run 'e2fsck -f /dev/sda3' first
+
+> e2fsck -f /dev/sda3
+...
+
+> resize2fs /dev/sda3
+...
+
+> sudo reboot
+> df -h ~/newdisk
+Filesystem    1M-blocks Used  Available Use% Mounted on
+/dev/sda3           325    1        300   1% /mnt/newdisk
+```
+
+# task 11
 
