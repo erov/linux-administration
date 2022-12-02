@@ -1,4 +1,4 @@
-# 1
+# task 1
 
 ```
 > blkid
@@ -40,7 +40,7 @@ Syncing disks.
 ```
 
 
-# 2
+# task 2
 
 ```
 > touch ~/sda3_uuid && blkid /dev/sda3 | cut -d "\"" -f2 > ~/sda3_uuid
@@ -48,7 +48,7 @@ Syncing disks.
 b86d2976-03
 ```
 
-# 3
+# task 3
 
 ```
 > mkfs.ext4 /dev/sda3 4096
@@ -85,7 +85,7 @@ Writing superblocks and filesystem accounting information: done
 ```
 
 
-# 4
+# task 4
 
 ```
 > dumpe2fs /dev/sda3
@@ -141,7 +141,8 @@ Journal start:            0
 
 ```
 
-# 5
+# task 5
+
 ```
 > tune2fs -c 2 -i 2m /dev/sda3
 tune2fs 1.45.4 (23-Sep-2019)
@@ -149,4 +150,12 @@ Setting maximal mount cout to 2
 Setting interval between checks to 5184000 seconds
 ```
 
-# 6
+# task 6
+
+```
+> mkdir /mnt/newdisk
+> mount -t ext4 /dev/sda3 /mnt/newdisk
+[ 6622.845207 ] EXT4-fs (sda3): mounted filesystem eith ordered data mode. Opts: (null)
+```
+
+
