@@ -289,3 +289,93 @@ Warning: skipping journal recovery because doing a read-only filesystem check.
 ```
 
 # task 12
+
+```
+> fdisk /dev/sda
+> n
+Partition type...
+> p
+Selected partition 4
+First sector...
+>
+Last sector...
+> +12M
+
+Created a new partition 4 of type 'Linux' and of size 12Mib
+
+> w
+The partition table has been altered.
+Syncing disks.
+
+> mke2fs -O journal_dev /dev/sda4 -b 4096
+Creating filesystem with 3072 4k blocks and 0 inodes
+Filesustem UUID: <some-hash>
+Superblock backups stored on blocks:
+
+Zeroing joirnal device:
+> umount /dev/sda3
+> mke2fs -t ext4 -J device=/dev/sda4 /dev/sda3 -b 4096
+/dev/sda3 contains a ext4 file system
+        last munted on /mnt/newdisk on <Date>
+Procced anyway? (y,N)
+> y
+Creating filesystem with 4096 1k blocks and 1024 inodes
+Filesystem UUID: <some hash>
+Superblock backups stored on blocks:
+        32768
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+```
+
+# task 13
+
+У меня закончились доступные разделы :(
+```
+> fdisk /dev/sda
+> d
+Partition number:
+> 3
+
+Partition 3 has been deleted.
+
+> d
+Partition number:
+> 4
+
+Partition 4 has been deleted.
+
+> n
+Partition type...
+> p
+Partition number...
+> 3
+First sector...
+> 
+Last sector...
+> +100M
+
+Created a new partition 3 of type 'Linux' and of size 100MiB.
+Partition #3 contins a ext4 signature.
+Do you want to remove the signature?
+> Y
+The signature will be remove by a write command.
+
+> n
+Partition type...
+> p
+Selected partition 4
+First sector...
+> 
+Last sector...
+> +100M
+
+Created a new partition 4 of type 'Linux' and of size 100MiB.
+
+> w
+The partition table has been altered.
+Syncing disks.
+
+```
