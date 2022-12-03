@@ -420,3 +420,13 @@ Password for root@//192.168.56.1/set-exam-iamerove: ********
 > ls /mnt/share
 ...
 ```
+
+# task 16
+
+```
+> echo "//192.168.56.1/set-exam-iamerove  /mnt/share  cifs  ro,vers=3.1.1,user=root,password=rootroot" >> /etc/fstab
+> umount /mnt/share
+> reboot
+> ls /mnt/share
+...
+```
