@@ -379,3 +379,32 @@ The partition table has been altered.
 Syncing disks.
 
 ```
+
+# task 14
+
+```
+> pvcreate /dev/sda3 /dev/sda4
+  Physical volume "/dev/sda3" successfully created.
+  Physical volume "/dev/sda4" successfully created.
+>  vgcreate /dev/sda3 /dev/sda4
+  Volume group "VG_sda3_sda4" successfully created.
+> lvcreate --size 180m VG_sda3_sda4
+  Logical volume "lvol0" created.
+> mkdir /mnt/supernewdisk
+> ls /dev
+...
+> ls /dev/VG_sda3_sda4
+lvol0
+> mkfs.ext4 /dev/VG_sda3_sda4/lvol0
+Creating filesystem with 184320 1k blocks and 46184 inodes.
+...
+> mount /dev/VG_sda3_sda4/lvol0 /mnt/supernewdisk
+[ Timestamp ] EXT4-fs (dm-3): mounted filesystem with ordered data mode.Opts: (null)
+> ls /mnt/supernewdisk
+lost+found
+> df -h /mnt/supernewdisk/
+Filesystem                      Size  Used Avail  Use%  Mounted on
+/dev/mapper/VG_sda3_sda4-lvol0  171M  1.6M  157M    1%  /mnt/supernewdisk
+``` 
+
+# task 15
