@@ -408,3 +408,15 @@ Filesystem                      Size  Used Avail  Use%  Mounted on
 ``` 
 
 # task 15
+
+Открыл директорию ```\\EROVE-DESKTOP\set-exam-iamerove``` на чтение для пользователя ```root```.
+
+```
+> mkdir /mnt/share
+> sudo smbpasswd -a root
+> mount -t cifs //192.168.56.1/set-exam-iamerove /mnt/share -o vers=3.1.1
+Password for root@//192.168.56.1/set-exam-iamerove: ********
+[ Timestamp ] CIFS: Attempting to mount //192.168.56.1/set-exam-iamerove
+> ls /mnt/share
+...
+```
