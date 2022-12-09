@@ -2,6 +2,15 @@
 
 echo -e "\n[INFO] cleaner.sh started..."
 
+# 17
+rm -rf /home/test15 && echo "[INFO] dir /home/test15 removes recursivly"
+
+# 15
+rm -rf /home/test14 && echo "[INFO] dir /home/test14 removed recursivly"
+
+# 14
+groupdel test13 && echo "[INFO] group 'test13' was removed"
+
 # 13
 rm -rf /home/test13 && echo "[INFO] dir /home/test13 was removed recursivly"
 

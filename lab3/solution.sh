@@ -55,7 +55,7 @@ echo "[INFO] group 'g1' info was appended into work3.log:" && cat work3.log | ta
 read
 
 # 11
-usermod -s /usr/bim/mc u1 && echo "[INFO] user 'u1' default shell changed to /usr/bin/mc"
+usermod -s /usr/bin/mc u1 && echo "[INFO] user 'u1' default shell changed to /usr/bin/mc"
 read
 
 # 12
@@ -68,6 +68,37 @@ mkdir /home/test13 && echo "[INFO] dir /home/test13 was created"
 cp work3.log /home/test13/work3-1.log && echo "[INFO] file /home/test13/work3-1.log created"
 cp work3.log /home/test13/work3-2.log && echo "[INFO] file /home/test13/work3-2.log created"
 echo "[INFO] /home/test13 info:" && ls -la /home/test13
+read
 
 # 14
+groupadd test13  # needs for access control
+usermod -a -G test13 u1
+usermod -a -G test13 u2
+chown -R u1:test13 /home/test13  # make u1 owner
+chmod -R 640 /home/test13
+echo "[INFO] /home/test13 access info:" && ls -ld /home/test13 && grep 'test13' /etc/group | awk -F: '{ print "where group " $1 " has users: " $4 }'
+read
 
+# 15
+mkdir /home/test14 && echo "[INFO] dir /home/test14 was created"
+chown u1:u1 /home/test14  # make u1 owner
+chmod -R 755 /home/test14  # u1 -- read&write, others -- read all and write if you're owner
+chmod +t /home/test14  # cause of Sticky bit set true
+echo "[INFO] /home/test14 access info:" && ls -ld /home/test14
+read
+
+# 16
+cp /bin/nano /home/test14/ && echo "[INFO] nano bin copied to /home/test14"
+chown u1:u1 /home/test14/nano  # make u1 owner as in 15
+chmod u+s /home/test14/nano  # apply SUID & SGID for running nano as u1
+ls -l /home/test14
+read
+
+# 17
+mkdir /home/test15 && echo "[INFO] dir /home/test15 was created"
+echo "secret" > /home/test15/secret_file && echo "[INFO] secret file created successfully"
+chmod 411 /home/test15
+chmod 444 /home/test15/secret_file
+echo "[INFO] trying ls /home/test15 as user 'u2':" && runuser -l u2 -c 'ls /home/test15'
+echo "[INFO] trying read /home/test15/secret_file as user 'u2':" && runuser -l u2 -c 'cat /home/test15/secret_file'
+read
