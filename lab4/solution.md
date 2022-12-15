@@ -161,3 +161,29 @@ localrepo          localrepo
 ```
 
 # task 7
+```
+> mkdir ~/repos && mv /etc/yum.repos.d/* ~/repos/ && mv ~/repos/localrepo.repo /etc/yum.repos.d/
+> ls /etc/yum.repos.d/
+localrepo.repo
+> # here I renamed 'mirrorlist' field in localrepo config into 'baseeurl'
+> dnf repinfo
+
+Repo-id            : localrepo
+Repo-name          : localrepo
+Repo-revision      : 1671139385
+Repo-updated       : Fri 16 Dec 2022 12:23:05 AM MSK
+Repo-pkgs          : 1
+Repo-available-pkgs: 1
+Repo-size          : 112 k
+Repo-baseurl       : file:///root/localrepo/
+Repo-expire        : 172,800 second(s) (last: Fri 16 Dec 2022 12:52:36 AM MSK)
+Repo-filename      : /etc/yum.repos.d/localrepo.repo
+Total packages: 1
+
+> dnf install ~/localrepo/checkinstall-1.6.2-3.el6.1.x86_64.rpm
+...
+Complete!
+```
+
+# task 8
+
