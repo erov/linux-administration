@@ -111,5 +111,37 @@ Pool started (with 5 workers)
 Pool finished
 
 > ls repodata/
-...
+05be1451dcc3a3455b606112f007eb593dc2e8ecdec8a2276b15be63bf0c8e9a-filelists.xml.gz
+0914507f9e0d77d4979ff6ba268761c4d22a289910c958cc09521b929bbc33a4-primary.xml.gz
+4bbbf5dc5f58572d41181c9e20faf8fc230d5d74a8bb51f7b6464405af764592-primary.sqlite.bz2
+a34539c2143744bc47b6b457f3b96a0e66fbdbb4c6809068e67869a34048f77b-other.xml.gz
+cd1b66f6df3741906321d832e6a5c28dafa0dcbcfad92606b0d74b2f37edba5d-other.sqlite.bz2
+d7d9f72882c8df1c18497330c5e58ac8fc895ad3be27a7bd48395086b8b0c25a-filelists.sqlite.bz2
+repomd.xml
+> nano /etc/yum.repos.d/localrepo.repo
+[localrepo]
+name=localrepo
+mirrorlist=file:///home/root/localrepo/
+enabled=1
+gpgcheck=0
+> ls /etc/yum.repos.d/
+CentOS-AppStream.repo
+CentOS-Base.repo
+CentOS-centosplus.repo
+CentOS-CR.repo
+CentOS-Debuginfo.repo
+CentOS-Devel.repo
+CentOS-Extras.repo
+CentOS-fasttrack.repo
+CentOS-HA.repo
+CentOS-Media.repo
+CentOS-PowerTools.repo
+CentOS-Sources.repo
+CentOS-Vault.repo
+epel-modular.repo
+epel-playground.repo
+epel.repo
+epel-testing-modular.repo
+epel-testing.repo
+localrepo.repo
 ```
