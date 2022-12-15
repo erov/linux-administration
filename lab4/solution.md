@@ -205,3 +205,23 @@ alien version 8.95
 > alien --to-rpm fortunes-ru_1.52-2_all.deb
 > rpm --install fortunes-ru-1.52-3.noarch.rpm --force
 ```
+
+# task 9
+
+```
+> mkdir ~/nano && cd ~/nano && dnf download nano
+> ls
+nano-2.9.8-1.el8.x86_64.rpm
+> sudo yum install rpmrebuild
+> rpmrebuild --change-spec-whole='sed "s/^Name.*/Name: newnano/; s/exit 0/mv \/usr\/bin\/nano \/usr\/bin\/newnano; exit 0/"' nano-2.9.8-1.el8.x86_64.rpm
+
+> ls ~/rpmbuild/RPMS/x86_64/
+newnano-2.9.8-1.el8.x86_64.rpm
+
+> rpm --install /root/prmbuild/RPMS/x86_64/newnano-2.9.8-1.el8.x86_64.rpm
+> newnano
+Success :)
+> nano
+-bash: /usr/bin/nano: No such file or directory
+
+```
