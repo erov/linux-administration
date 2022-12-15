@@ -98,4 +98,18 @@ NetworkManager-adsl.x86_64                  1:1.22.8-4.el8                     @
 176061 task4_2.log
 ```
 
+# task 5
 
+```
+> cd ~ && mkdir localrepo && cd localrepo && cp /mnt/lab4/checkinstall-1.6.2-3.el6.1.x86_64.rpm .
+> createrepo .
+Directory walk started
+Directory walk done - 1 packages
+Temporary output repo path: ./.repodata/
+Preparing sqlite DBs
+Pool started (with 5 workers)
+Pool finished
+
+> ls repodata/
+...
+```
