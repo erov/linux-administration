@@ -186,4 +186,22 @@ Complete!
 ```
 
 # task 8
-
+```
+> mv ~/repos/* /etc/yum.repos.d/
+> # Here I downloaded alien_8.95.tar.xz archive into shared dir onto host machine
+> yum install perl
+> mkdir ~/alien && cd ~/alien && cp /mnt/lab4/alien_8.95.tar.xz .
+> tar -xf alien_8.95.tar.xz
+> ls
+alien-8.95 alien_8.95.tar.xz
+> cd alien-8.95
+> # Execute perl files from README.md
+> perl Makefile.PL
+> make
+> make install
+> alien --version
+alien version 8.95
+> mkdir ~/fortunes && cd ~/fortunes && cp /mnt/lab4/fortunes-ru_1.52-2.all.deb
+> alien --to-rpm fortunes-ru_1.52-2_all.deb
+> rpm --install fortunes-ru-1.52-3.noarch.rpm --force
+```
