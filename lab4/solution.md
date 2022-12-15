@@ -86,3 +86,16 @@ ModemManager-glib.x86_64                    1.10.8-2.el8                       @
 NetworkManager.x86_64                       1:1.22.8-4.el8                     @anaconda  
 NetworkManager-adsl.x86_64                  1:1.22.8-4.el8                     @anaconda
 ```
+
+# task 4
+```
+> dnf deplist gcc > task4_1.log
+> wc -l
+95 task4_1.log
+
+> dnf deplist --whatrequires libgcc > task4_2.log
+> wc -l 
+176061 task4_2.log
+```
+
+
