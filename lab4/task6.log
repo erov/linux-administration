@@ -1,0 +1,7 @@
+repo id            repo name
+AppStream          CentOS-8 - AppStream
+BaseOS             CentOS-8 - Base
+epel               Extra Packages for Enterprise Linux 8 - x86_64
+epel-modular       Extra Packages for Enterprise Linux Modular 8 - x86_64
+extras             CentOS-8 - Extras
+localrepo          localrepo
