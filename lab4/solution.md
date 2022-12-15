@@ -145,3 +145,19 @@ epel-testing-modular.repo
 epel-testing.repo
 localrepo.repo
 ```
+
+# task 6
+
+```
+> dnf repolist --enabled > task6.log
+> cat task6.log
+repo id            repo name
+AppStream          CentOS-8 - AppStream
+BaseOS             CentOS-8 - Base
+epel               Extra Packages for Enterprise Linux 8 - x86_64
+epel-modular       Extra Packages for Enterprise Linux Modular 8 - x86_64
+extras             CentOS-8 - Extras
+localrepo          localrepo
+```
+
+# task 7
