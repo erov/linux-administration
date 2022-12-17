@@ -92,7 +92,7 @@ read
 # 16
 cp /bin/nano /home/test14/ && echo "[INFO] nano bin copied to /home/test14"
 chown u1:u1 /home/test14/nano  # make u1 owner as in 15
-sudo chmod a+s /home/test14/nano  # apply SUID & SGID for running nano as u1
+chmod u+s /home/test14/nano  # apply SUID & SGID for running nano as u1
 ls -l /home/test14
 read
 
