@@ -74,8 +74,10 @@ read
 groupadd test13  # needs for access control
 usermod -a -G test13 u1
 usermod -a -G test13 u2
+usermod -a -G test13 user  # for testing
 chown -R u1:test13 /home/test13  # make u1 owner
 chmod -R 640 /home/test13
+chmod 550 /home/test13
 echo "[INFO] /home/test13 access info:" && ls -ld /home/test13 && grep 'test13' /etc/group | awk -F: '{ print "where group " $1 " has users: " $4 }'
 read
 
@@ -90,7 +92,7 @@ read
 # 16
 cp /bin/nano /home/test14/ && echo "[INFO] nano bin copied to /home/test14"
 chown u1:u1 /home/test14/nano  # make u1 owner as in 15
-chmod u+s /home/test14/nano  # apply SUID & SGID for running nano as u1
+sudo chmod a+s /home/test14/nano  # apply SUID & SGID for running nano as u1
 ls -l /home/test14
 read
 
@@ -102,3 +104,4 @@ chmod 444 /home/test15/secret_file
 echo "[INFO] trying ls /home/test15 as user 'u2':" && runuser -l u2 -c 'ls /home/test15'
 echo "[INFO] trying read /home/test15/secret_file as user 'u2':" && runuser -l u2 -c 'cat /home/test15/secret_file'
 read
+
